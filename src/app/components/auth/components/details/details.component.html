@@ -1,0 +1,13 @@
+<div [@easeInOut] class="card" [ngClass]="{'border border-success' : todo.done}">
+  <div class="row">
+    <div class="col-12 m-1">
+      <a routerLink="/auth/home" class="btn btn-light">Back</a>
+    </div>
+  </div>
+  <div class="p-4 d-flex flex-column position-static">
+    <h3 class="mb-0">{{todo.title}} <span class="mb-auto" *ngIf="todo?.done"><i class="fa fa-check"></i></span></h3>
+    <div class="mb-1 text-muted">{{todo.createdAt  | date: 'EEEE, MMMM d, y'}}</div>
+    <p class="mb-auto">{{todo.description}}</p>
+
+  </div>
+</div>

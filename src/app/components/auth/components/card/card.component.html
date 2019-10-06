@@ -1,0 +1,23 @@
+<div class="card" appHighlight [ngClass]="{'border border-success' : todo.done}">
+  <div class="p-4 d-flex flex-column position-static">
+    <h3 class="mb-0">{{todo.title}} <span class="mb-auto" *ngIf="todo?.done"><i class="fa fa-check"></i></span></h3>
+    <div class="mb-1 text-muted">{{todo.createdAt  | date: 'EEEE, MMMM d, y'}}</div>
+    <p class="mb-auto">{{todo.description | truncatePipe :[18] }}</p>
+
+  </div>
+  <div class="m-3">
+    <div class="row">
+      <div class="col-12">
+        <button [disabled]="!todo.done" class="btn btn-danger btn-block m-1" (click)="deleteTodo(todo)">Delete</button>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-success btn-block m-1"
+                (click)="updateDone(todo)">{{todo.done ? 'Unmake done' : 'Make done' }}</button>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary btn-block m-1" [routerLink]="'/auth/details/' + todo.id">Read more</button>
+      </div>
+    </div>
+
+  </div>
+</div>
